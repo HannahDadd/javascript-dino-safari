@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement in [`start.js`](start.js):
+Implement in [`starter/index.js`](starter/index.js):
 
 1. **`appendSighting(filePath, record)`** — append `JSON.stringify(record) + '\n'` using **`fs/promises`** (`appendFile`). Create parent directories if needed (`mkdir` with `{ recursive: true }`).
 2. **`readSightings(filePath)`** — read the file as UTF-8, split on newlines, filter empties, `JSON.parse` each line, return an array of objects.
@@ -12,7 +12,7 @@ Implement in [`start.js`](start.js):
 ## Verify
 
 ```bash
-pnpm vitest run module-07-node-tools/exercises/01-file-io-ndjson/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

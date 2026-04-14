@@ -3,7 +3,7 @@ export const slides = [
     type: 'title',
     content: {
       title: 'Module 2 — Functions & Functional Loops',
-      subtitle: 'Declarations, arrows, and the filter/map/reduce pipeline',
+      subtitle: 'Declarations, arrows, filter, sort, map, reduce',
       icon: 'zap',
     },
   },
@@ -52,21 +52,65 @@ log('Ridge', 'TRX-001', 'STG-014');`,
     },
   },
   {
-    type: 'standard',
+    type: 'code',
     content: {
-      title: 'map / filter / reduce',
-      icon: 'sliders',
-      points: [
-        '`filter` — keep elements matching a predicate.',
-        '`map` — transform each element, same length out.',
-        '`reduce` — fold many values into one (sum, group-by, object).',
+      title: '.filter() — keep what passes',
+      code: `const dangerous = dinosaurs.filter(d => d.dangerLevel > 5);
+const evens = [1, 2, 3, 4].filter(n => n % 2 === 0);
+const shared = a.filter(id => b.includes(id));`,
+      highlights: [
+        'Returns a new array — original untouched',
+        'Predicate callback: return true to keep, false to drop',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'Pipeline example',
+      title: '.sort() — order with a comparator',
+      code: `[10, 1, 21, 2].sort((a, b) => a - b);  // [1, 2, 10, 21]
+dinos.sort((a, b) => b.dangerLevel - a.dangerLevel);
+dinos.sort((a, b) => a.species.localeCompare(b.species));`,
+      highlights: [
+        'Without a comparator, sort is lexicographic — [1, 10, 2] !',
+        '.sort() mutates — spread first if you need a copy',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: '.map() — transform each element',
+      code: `const doubled = [1, 2, 3].map(n => n * 2);
+const names = dinos.map(d => d.species);
+const lines = dinos.map(d =>
+  \`\${d.species} (\${d.zone}) — danger: \${d.dangerLevel}\`
+);`,
+      highlights: [
+        'Same length in, same length out — every element transformed',
+        'Use to reshape objects, extract fields, format strings',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: '.reduce() — fold into one value',
+      code: `const total = nums.reduce((acc, n) => acc + n, 0);
+const byZone = dinos.reduce((acc, d) => {
+  acc[d.zone] = (acc[d.zone] ?? 0) + 1;
+  return acc;
+}, {});`,
+      highlights: [
+        'Accumulator carries state between iterations',
+        'Always pass an initial value — empty arrays throw without one',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Pipeline — compose them all',
       code: `const report = dinosaurs
   .filter(d => d.diet === 'carnivore')
   .map(d => ({ zone: d.zone, danger: d.dangerLevel }))
@@ -106,9 +150,14 @@ log('Ridge', 'TRX-001', 'STG-014');`,
   {
     type: 'welcome',
     content: {
-      title: 'Exercises',
+      title: 'Exercises — graded missions',
       points: [
-        '01 — Migration pipeline: filter, map, reduce, compose',
+        '01 — Arrow functions: double, greet, alert, tagAll',
+        '02 — Filter: evens, overlap, dangerous dinos',
+        '03 — Sort: numbers, by danger, by name',
+        '04 — Map: double all, extract names, format sightings',
+        '05 — Reduce: sum, count by zone, max danger',
+        '06 — Capstone: migration pipeline (filter + map + reduce)',
       ],
     },
   },

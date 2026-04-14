@@ -4,7 +4,7 @@
 
 ## Tasks
 
-In [`start.js`](start.js), implement:
+In [`starter/index.js`](starter/index.js), implement:
 
 1. **`withSwim(dino)`** — returns a new object spreading `dino` with `swim()` returning `"<name> cuts through the water"`.
 2. **`withFly(dino)`** — returns a new object spreading `dino` with `fly()` returning `"<name> circles above the canopy"`.
@@ -15,7 +15,7 @@ Use **object spread** so you never mutate the input `dino`.
 ## Verify
 
 ```bash
-pnpm vitest run module-05-objects-prototypes/exercises/03-mixin-composition/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

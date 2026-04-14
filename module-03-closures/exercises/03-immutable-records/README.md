@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Edit [`start.js`](start.js):
+Edit [`starter/index.js`](starter/index.js):
 
 1. **`bumpDangerLevel(dino, delta)`** — return a **new** dino object with `dangerLevel` increased by `delta`. Do **not** change `dino`.
 2. **`renameZone(dino, newZone)`** — return a new object with `zone: newZone`, same other fields.
@@ -14,7 +14,7 @@ Assume `dino` is a plain data object like `{ name, zone, dangerLevel, tags: stri
 ## Verify
 
 ```bash
-pnpm vitest run module-03-closures/exercises/03-immutable-records/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

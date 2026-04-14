@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement `streamFilterDangerous(filePath, minDanger)` in [`start.js`](start.js):
+Implement `streamFilterDangerous(filePath, minDanger)` in [`starter/index.js`](starter/index.js):
 
 - Use **`fs.createReadStream`** plus **`readline.createInterface`** (or a `Transform` stream if you prefer).
 - Skip the header row.
@@ -14,7 +14,7 @@ Implement `streamFilterDangerous(filePath, minDanger)` in [`start.js`](start.js)
 ## Verify
 
 ```bash
-pnpm vitest run module-07-node-tools/exercises/03-stream-processor/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

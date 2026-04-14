@@ -1,13 +1,17 @@
 # Module 2 — Functions, Arrows, and Functional Loops
 
-Functions are the fundamental unit of work in JavaScript. This module covers how to declare them, the compact arrow syntax you'll use constantly, and the trio of array methods — `map`, `filter`, `reduce` — that replace most hand-written loops.
+Functions are the fundamental unit of work in JavaScript. This module covers how to declare them, the compact arrow syntax you'll use constantly, and the array methods — `filter`, `sort`, `map`, `reduce` — that replace most hand-written loops.
 
 By the end of this module you should be able to:
 
 - **Declare functions** three ways: declaration, expression, and arrow.
 - **Use default and rest parameters** to write flexible signatures.
 - **Pass functions as values** — to other functions, into arrays, wherever.
-- **Chain `.filter()`, `.map()`, `.reduce()`** into readable data pipelines.
+- **Use `.filter()`** to select elements from an array.
+- **Use `.sort()`** with a comparator to order arrays.
+- **Use `.map()`** to transform every element.
+- **Use `.reduce()`** to fold an array into a single value.
+- **Chain** filter, map, and reduce into readable data pipelines.
 
 ---
 
@@ -36,14 +40,7 @@ const describeDino = function (dino) {
 const double = (n) => n * 2;
 ```
 
-Arrows with a single expression return it implicitly — no `return` keyword needed. When the body needs multiple statements, use a block:
-
-```js
-const buildAlert = (zone, level) => {
-  const tag = level >= 4 ? 'DANGER' : 'OK';
-  return `[${tag}] Zone: ${zone}`;
-};
-```
+Arrows shine for callbacks: short, no curly braces needed for single expressions, and no `this` confusion.
 
 ### Default parameters
 
@@ -54,77 +51,162 @@ function formatSighting(name, zone = 'Uncharted', risk = 0) {
 formatSighting('Compy');  // "Compy @ Uncharted (risk 0)"
 ```
 
-Defaults kick in when the argument is `undefined` (or not passed). They keep call sites clean.
+Defaults fill in when the argument is `undefined`. They keep call sites clean — no need to pass values you rarely change.
 
 ### Rest parameters
 
 ```js
 function logAll(label, ...items) {
-  for (const item of items) console.log(`${label}: ${item}`);
+  for (const item of items) {
+    console.log(`${label}: ${item}`);
+  }
 }
-logAll('Online', 'North Ridge', 'Valley', 'Paddock');
+logAll('Zone', 'North', 'South', 'Ridge');
 ```
 
-`...items` collects all remaining arguments into a real array. No more `arguments` object.
-
-### Functions as values
-
-Functions are values — you can store them in objects, pass them to other functions, return them from functions:
-
-```js
-function applyToEach(arr, fn) {
-  const result = [];
-  for (const item of arr) result.push(fn(item));
-  return result;
-}
-applyToEach(['Rex', 'Stego'], (s) => s.length);  // [3, 5]
-```
-
-This "pass a function to a function" pattern is the foundation of `map`, `filter`, and `reduce`.
+`...items` collects all remaining arguments into a real array. Unlike the legacy `arguments` object, rest params are a proper array — you can `.map()` and `.filter()` them directly.
 
 ---
 
-## 2. Pipelines — map, filter, reduce
+## 2. Filter
 
 ```bash
-node module-02-functions/demo/02-pipelines
+node module-02-functions/demo/02-filter
 ```
 
-The demo reads the park's dinosaur registry and builds a "carnivore pressure by zone" summary in a single chain.
-
-### `filter` — keep what matches
+`.filter()` returns a **new array** containing only the elements that pass a test:
 
 ```js
-const carnivores = dinosaurs.filter((d) => d.diet === 'carnivore' && d.isActive);
+const evens = [1, 2, 3, 4, 5, 6].filter((n) => n % 2 === 0);
+// [2, 4, 6]
 ```
 
-Returns a new array with only the elements where the callback returns `true`. Original array untouched.
+The callback (the **predicate**) receives each element. Return `true` to keep it, `false` to drop it.
 
-### `map` — transform each element
+Filter works on objects too:
 
 ```js
-const zones = carnivores.map((d) => ({ zone: d.zone, danger: d.dangerLevel }));
+const dangerous = dinosaurs.filter((d) => d.dangerLevel > 5);
 ```
 
-Returns a new array of the same length, each element transformed. Think of it as "for each item, produce a new shape."
-
-### `reduce` — fold into one value
+You can combine filter with `.includes()` to find overlap between two arrays:
 
 ```js
-const totals = zones.reduce((acc, row) => {
-  acc[row.zone] = (acc[row.zone] ?? 0) + row.danger;
+const shared = zoneA.filter((id) => zoneB.includes(id));
+```
+
+The original array is never mutated — `.filter()` always returns a fresh array.
+
+---
+
+## 3. Sort
+
+```bash
+node module-02-functions/demo/03-sort
+```
+
+`.sort()` orders elements **in place** (it mutates the array). Without a comparator, it sorts **lexicographically** — which gives wrong results for numbers:
+
+```js
+[10, 1, 21, 2].sort();           // [1, 10, 2, 21] — wrong!
+[10, 1, 21, 2].sort((a, b) => a - b);  // [1, 2, 10, 21] — correct
+```
+
+The comparator function returns a negative number if `a` should come first, positive if `b` should come first, and zero if they're equal.
+
+Sort objects by a numeric field:
+
+```js
+dinos.sort((a, b) => b.dangerLevel - a.dangerLevel);  // highest first
+```
+
+Sort alphabetically with `.localeCompare()`:
+
+```js
+dinos.sort((a, b) => a.species.localeCompare(b.species));
+```
+
+**Mutation warning:** If you need to keep the original order, spread first: `[...dinos].sort(...)`.
+
+---
+
+## 4. Map
+
+```bash
+node module-02-functions/demo/04-map
+```
+
+`.map()` transforms **every element** and returns a new array of the same length:
+
+```js
+const doubled = [1, 2, 3].map((n) => n * 2);  // [2, 4, 6]
+```
+
+Extract a single field from objects:
+
+```js
+const names = dinosaurs.map((d) => d.species);
+// ['Tyrannosaurus', 'Brachiosaurus', 'Velociraptor']
+```
+
+Format objects into strings:
+
+```js
+const lines = dinosaurs.map(
+  (d) => `${d.species} (${d.zone}) — danger: ${d.dangerLevel}`
+);
+```
+
+Like `.filter()`, `.map()` never mutates the original — it returns a fresh array every time.
+
+---
+
+## 5. Reduce
+
+```bash
+node module-02-functions/demo/05-reduce
+```
+
+`.reduce()` folds an array down to a **single value** — a number, a string, an object, anything. It takes a callback and an initial value for the **accumulator**:
+
+```js
+const total = [3, 7, 2, 8].reduce((acc, n) => acc + n, 0);  // 20
+```
+
+The accumulator carries state between iterations. After each call, whatever you return becomes the new `acc`.
+
+Group items into an object:
+
+```js
+const countByZone = dinos.reduce((acc, d) => {
+  acc[d.zone] = (acc[d.zone] ?? 0) + 1;
   return acc;
 }, {});
+// { North: 2, Lake: 2, South: 1 }
 ```
 
-`reduce` walks the array left to right, carrying an accumulator. The second argument (`{}` here) is the starting value. Use reduce for sums, group-bys, building objects from arrays — anything where "many items become one thing."
-
-### Chaining
-
-The real power is chaining them together:
+Find a maximum:
 
 ```js
-const report = dinosaurs
+const mostDangerous = dinos.reduce((best, d) =>
+  d.dangerLevel > best.dangerLevel ? d : best
+);
+```
+
+**Always pass an initial value.** Without one, `.reduce()` on an empty array throws a `TypeError`.
+
+---
+
+## 6. Pipelines — putting it all together
+
+```bash
+node module-02-functions/demo/06-pipelines
+```
+
+The real power comes from chaining filter, map, and reduce together:
+
+```js
+const carnivorePressure = dinosaurs
   .filter((d) => d.diet === 'carnivore' && d.isActive)
   .map((d) => ({ zone: d.zone, danger: d.dangerLevel }))
   .reduce((acc, row) => {
@@ -133,7 +215,7 @@ const report = dinosaurs
   }, {});
 ```
 
-Read it top to bottom: filter the data, reshape each row, fold into a summary. No intermediate variables, no mutation.
+Read it top to bottom: filter the data, reshape it, fold it into a summary. Each step returns a new value — no mutation, no side effects.
 
 ---
 
@@ -141,12 +223,17 @@ Read it top to bottom: filter the data, reshape each row, fold into a summary. N
 
 | # | Folder | What you'll practice |
 |---|--------|----------------------|
-| 1 | [`01-map-filter-reduce`](exercises/01-map-filter-reduce/) | `filter` high-risk zones, `map` to log lines, `reduce` to zone counts, compose into a migration report. |
+| 1 | [`exercises/01-arrow-functions`](exercises/01-arrow-functions/) | Arrow syntax, default params, rest params |
+| 2 | [`exercises/02-filter`](exercises/02-filter/) | `.filter()` on numbers and objects |
+| 3 | [`exercises/03-sort`](exercises/03-sort/) | `.sort()` with numeric and string comparators |
+| 4 | [`exercises/04-map`](exercises/04-map/) | `.map()` to double, extract, format |
+| 5 | [`exercises/05-reduce`](exercises/05-reduce/) | `.reduce()` to sum, group, find max |
+| 6 | [`exercises/06-migration-pipeline`](exercises/06-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
 
-Run tests:
+Each exercise has a `starter/` folder. To work on an exercise:
 
 ```bash
-pnpm vitest run module-02-functions/exercises/
+cd module-02-functions/exercises/<exercise>/starter && pnpm install && pnpm test
 ```
 
 ---
@@ -159,6 +246,7 @@ Teaching deck: from repo root run `pnpm slides:02`, or `cd slides && pnpm dev`.
 
 - [MDN: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [MDN: Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-- [MDN: Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 - [MDN: Array.prototype.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- [MDN: Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+- [MDN: Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 - [MDN: Array.prototype.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)

@@ -142,7 +142,7 @@ If you didn't create it, don't mutate it. Return a new object with the changes a
 Run tests:
 
 ```bash
-pnpm vitest run module-03-closures/exercises/
+cd module-03-closures/exercises/<exercise>/starter && pnpm install && pnpm test
 ```
 
 ---

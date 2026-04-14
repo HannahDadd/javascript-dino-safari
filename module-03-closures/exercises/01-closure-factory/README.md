@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement `createZoneTracker(zoneName)` in [`start.js`](start.js).
+Implement `createZoneTracker(zoneName)` in [`starter/index.js`](starter/index.js).
 
 Return an object with:
 
@@ -17,7 +17,7 @@ Trackers for different zones must **not** share the same backing array.
 ## Verify
 
 ```bash
-pnpm vitest run module-03-closures/exercises/01-closure-factory/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

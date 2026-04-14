@@ -19,6 +19,39 @@ export const slides = [
     },
   },
   {
+    type: 'code',
+    content: {
+      title: 'Hello World in Node',
+      code: `// hello.js
+console.log('Hello, Jurassic World!');
+
+// run it
+// $ node hello.js`,
+      highlights: [
+        'Node runs JavaScript files directly — no browser required',
+        'Demo 01: your first Node program',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Syntax fundamentals — quick refresh',
+      code: `const zone = 'Cretaceous Valley';
+let headcount = 0;
+
+const dinos = ['Rex', 'Blue', 'Echo'];
+for (const name of dinos) {
+  headcount++;
+  console.log(\`\${name} — #\${headcount} in \${zone}\`);
+}`,
+      highlights: [
+        '`const` for values that never reassign; `let` when they must',
+        'Template literals, `for...of`, and block scoping — the everyday basics',
+      ],
+    },
+  },
+  {
     type: 'standard',
     content: {
       title: 'Learning goals',
@@ -27,7 +60,6 @@ export const slides = [
         'Use ESM (`import` / `export`) with `"type": "module"`.',
         'Wire package scripts for run, test, and lint.',
         'Run Vitest and read failures like a ranger reads a map.',
-        'Modern syntax: destructuring, spread/rest, `?.`, `??`, templates.',
         'Debug with `node --inspect` and your editor.',
       ],
     },
@@ -123,34 +155,6 @@ export default function briefing() {
         'Prettier ends bike-shedding on spacing and quotes.',
         'Run from root; same rules for every module in the monorepo.',
       ],
-    },
-  },
-  {
-    type: 'code',
-    content: {
-      title: 'Modern syntax for telemetry objects',
-      code: `const { name, zone, dangerLevel = 0 } = dino ?? {};
-const line = \`\${name} @ \${zone} (risk \${dangerLevel})\`;
-const merged = { ...base, notes: 'Calm' };
-const ping = dino?.lastSeen ?? 'no recent ping';`,
-      highlights: [
-        'Destructuring + defaults tidy verbose null checks',
-        '`?.` and `??` are your friends for messy field data',
-      ],
-    },
-  },
-  {
-    type: 'comparison',
-    content: {
-      title: 'Optional chaining vs blind trust',
-      left: {
-        label: 'Without ?.',
-        code: `const z = dino && dino.nest && dino.nest.zone;`,
-      },
-      right: {
-        label: 'With ?.',
-        code: `const z = dino?.nest?.zone;`,
-      },
     },
   },
   {

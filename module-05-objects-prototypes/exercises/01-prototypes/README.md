@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Edit [`start.js`](start.js):
+Edit [`starter/index.js`](starter/index.js):
 
 1. **`Dinosaur(name, species, zone)`** — instances have `describe()` on the prototype returning  
    `"<name> — <species> @ <zone>"`.
@@ -15,7 +15,7 @@ Use `Object.create` / `prototype` wiring so `instanceof` works.
 ## Verify
 
 ```bash
-pnpm vitest run module-05-objects-prototypes/exercises/01-prototypes/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

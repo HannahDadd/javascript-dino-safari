@@ -85,13 +85,18 @@ All **exercises** run in **Node.js** and are checked with **Vitest** (`start.js`
 
 ### Module 2 — [Functions, arrows, functional loops](module-02-functions/)
 
-**Topics:** Function declarations, expressions, arrow syntax, default/rest parameters, functions as values, `map` / `filter` / `reduce` pipelines.
+**Topics:** Function declarations, expressions, arrow syntax, default/rest parameters, functions as values, `.filter()`, `.sort()`, `.map()`, `.reduce()`, pipelines.
 
-**Demos:** Function basics (declarations, arrows, defaults, rest); carnivore pipeline over JSON data.
+**Demos:** Function basics; filter; sort; map; reduce; carnivore pipeline over JSON data.
 
 | Exercise | Folder | What you practice |
 | -------- | ------ | ----------------- |
-| Map/filter/reduce | [`exercises/01-map-filter-reduce`](module-02-functions/exercises/01-map-filter-reduce/) | Filter high-risk events, log lines, counts, composed `buildMigrationReport` |
+| Arrow functions | [`exercises/01-arrow-functions`](module-02-functions/exercises/01-arrow-functions/) | Arrow syntax, default params, rest params |
+| Filter | [`exercises/02-filter`](module-02-functions/exercises/02-filter/) | `.filter()` on numbers and objects |
+| Sort | [`exercises/03-sort`](module-02-functions/exercises/03-sort/) | `.sort()` with numeric and string comparators |
+| Map | [`exercises/04-map`](module-02-functions/exercises/04-map/) | `.map()` to double, extract, format |
+| Reduce | [`exercises/05-reduce`](module-02-functions/exercises/05-reduce/) | `.reduce()` to sum, group, find max |
+| Migration pipeline | [`exercises/06-migration-pipeline`](module-02-functions/exercises/06-migration-pipeline/) | Full pipeline: filter + map + reduce composed |
 
 ### Module 3 — [Closures & currying](module-03-closures/)
 

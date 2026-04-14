@@ -60,6 +60,78 @@ importers:
 
   module-02-functions: {}
 
+  module-02-functions/exercises/01-arrow-functions/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/01-arrow-functions/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/02-filter/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/02-filter/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/03-sort/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/03-sort/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/04-map/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/04-map/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/05-reduce/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/05-reduce/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/06-migration-pipeline/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-02-functions/exercises/06-migration-pipeline/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
   module-02-functions/slides:
     dependencies:
       react:
@@ -89,6 +161,42 @@ importers:
         version: 6.4.1(jiti@2.6.1)(lightningcss@1.32.0)
 
   module-03-closures: {}
+
+  module-03-closures/exercises/01-closure-factory/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-03-closures/exercises/01-closure-factory/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-03-closures/exercises/02-partial-application/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-03-closures/exercises/02-partial-application/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-03-closures/exercises/03-immutable-records/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-03-closures/exercises/03-immutable-records/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
 
   module-03-closures/slides:
     dependencies:
@@ -120,6 +228,42 @@ importers:
 
   module-04-js-gotchas: {}
 
+  module-04-js-gotchas/exercises/01-bugfix-coercion/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-04-js-gotchas/exercises/01-bugfix-coercion/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-04-js-gotchas/exercises/02-bugfix-equality/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-04-js-gotchas/exercises/02-bugfix-equality/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-04-js-gotchas/exercises/03-bugfix-numbers/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-04-js-gotchas/exercises/03-bugfix-numbers/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
   module-04-js-gotchas/slides:
     dependencies:
       react:
@@ -149,6 +293,42 @@ importers:
         version: 6.4.1(jiti@2.6.1)(lightningcss@1.32.0)
 
   module-05-objects-prototypes: {}
+
+  module-05-objects-prototypes/exercises/01-prototypes/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-05-objects-prototypes/exercises/01-prototypes/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-05-objects-prototypes/exercises/02-map-and-set/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-05-objects-prototypes/exercises/02-map-and-set/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-05-objects-prototypes/exercises/03-mixin-composition/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-05-objects-prototypes/exercises/03-mixin-composition/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
 
   module-05-objects-prototypes/slides:
     dependencies:
@@ -180,6 +360,42 @@ importers:
 
   module-06-async: {}
 
+  module-06-async/exercises/01-retry-timeout/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-06-async/exercises/01-retry-timeout/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-06-async/exercises/02-promise-allsettled/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-06-async/exercises/02-promise-allsettled/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-06-async/exercises/03-abort-controller/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-06-async/exercises/03-abort-controller/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
   module-06-async/slides:
     dependencies:
       react:
@@ -210,6 +426,42 @@ importers:
 
   module-07-node-tools: {}
 
+  module-07-node-tools/exercises/01-file-io-ndjson/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-07-node-tools/exercises/01-file-io-ndjson/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-07-node-tools/exercises/02-http-json-server/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-07-node-tools/exercises/02-http-json-server/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-07-node-tools/exercises/03-stream-processor/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-07-node-tools/exercises/03-stream-processor/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
   module-07-node-tools/slides:
     dependencies:
       react:
@@ -239,6 +491,30 @@ importers:
         version: 6.4.1(jiti@2.6.1)(lightningcss@1.32.0)
 
   module-08-code-organisation: {}
+
+  module-08-code-organisation/exercises/01-split-modules/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-08-code-organisation/exercises/01-split-modules/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-08-code-organisation/exercises/02-error-config/solution:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
+
+  module-08-code-organisation/exercises/02-error-config/starter:
+    devDependencies:
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.9(lightningcss@1.32.0)
 
   module-08-code-organisation/slides:
     dependencies:

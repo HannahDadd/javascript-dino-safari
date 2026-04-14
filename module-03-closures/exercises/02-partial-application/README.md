@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement `createAlertFn(severity)` in [`start.js`](start.js).
+Implement `createAlertFn(severity)` in [`starter/index.js`](starter/index.js).
 
 - Returns a function `alert(message: string)` that **returns** a string (does not need to `console.log`).
 - Format: `[SEVERITY] message` (uppercase severity in brackets).
@@ -17,7 +17,7 @@ Also implement `createTaggedLogger(tag, baseAlertFn)`:
 ## Verify
 
 ```bash
-pnpm vitest run module-03-closures/exercises/02-partial-application/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement `createDinoRegistry()` in [`start.js`](start.js) returning:
+Implement `createDinoRegistry()` in [`starter/index.js`](starter/index.js) returning:
 
 - `add(dino)` — store by `dino.trackingId` (string). Overwrites same ID. `listSpecies()` must return unique species (a `Set` is a good building block).
 - `get(trackingId)` — the record or `undefined`.
@@ -14,7 +14,7 @@ Implement `createDinoRegistry()` in [`start.js`](start.js) returning:
 ## Verify
 
 ```bash
-pnpm vitest run module-05-objects-prototypes/exercises/02-map-and-set/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

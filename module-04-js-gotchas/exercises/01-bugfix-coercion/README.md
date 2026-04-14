@@ -6,7 +6,7 @@
 
 1. Run the tests — they will fail.
 2. Read each failure message to understand the expected vs actual behaviour.
-3. Fix the bug in `start.js`. Each function has exactly one bug.
+3. Fix the bug in `starter/index.js`. Each function has exactly one bug.
 
 ## The bugs you are hunting
 
@@ -22,7 +22,7 @@
 ## Verify
 
 ```bash
-pnpm vitest run module-04-js-gotchas/exercises/01-bugfix-coercion/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

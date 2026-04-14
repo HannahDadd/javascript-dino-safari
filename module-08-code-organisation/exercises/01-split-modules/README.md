@@ -4,15 +4,15 @@
 
 ## Starting point
 
-- [`spaghetti.js`](spaghetti.js) — messy but **correct** implementation.
-- [`start.js`](start.js) — currently re-exports `compileDigest` from `spaghetti.js`.
+- [`starter/spaghetti.js`](starter/spaghetti.js) — messy but **correct** implementation.
+- [`starter/index.js`](starter/index.js) — currently re-exports `compileDigest` from `spaghetti.js`.
 
 ## Tasks
 
 1. Extract **zone normalization / dedupe / sorting** into its own module (e.g. `zones.js`).
 2. Extract **high-alert counting** into another module (e.g. `alerts.js`).
-3. Add a small **composer** (could be `compile-digest.js` or `index.js`) that wires the pieces.
-4. Update [`start.js`](start.js) to export `compileDigest` from your new structure and **delete or stop using** the monolith import.
+3. Add a small **composer** (could be `compile-digest.js` or keep `index.js`) that wires the pieces.
+4. Update [`starter/index.js`](starter/index.js) to export `compileDigest` from your new structure and **delete or stop using** the monolith import.
 
 ## Rules
 
@@ -20,9 +20,9 @@
 - Keep tests green:
 
 ```bash
-pnpm vitest run module-08-code-organisation/exercises/01-split-modules/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
 ## Reference layout
 
-See the [`solution/`](solution/) folder for one possible factoring (and `solution.js` re-export for a quick peek).
+See the [`solution/`](solution/) folder for one possible factoring.

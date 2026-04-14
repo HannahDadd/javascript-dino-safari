@@ -81,7 +81,7 @@ Get everyone from zero to a working modern JS workflow: run scripts, split code 
 
 These topics have their own modules later:
 
-- Destructuring, spread/rest, `?.`, `??` in depth → Module 6 (types & coercion) or as-needed in exercises.
-- `async` / `await` → Module 5.
+- Destructuring, spread/rest, `?.`, `??` in depth → Module 4 (JS Gotchas) or as-needed in exercises.
+- `async` / `await` → Module 6.
 - `fs`, `path`, `http` → Module 7.
 - Project structure and code organisation → Module 8.

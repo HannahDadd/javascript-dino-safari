@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement `createCancellableTask(delayMs)` in [`start.js`](start.js) returning:
+Implement `createCancellableTask(delayMs)` in [`starter/index.js`](starter/index.js) returning:
 
 - `start(value)` — returns a Promise that resolves to the string **`"done:" + value`** after `delayMs`, unless cancelled.
 - `cancel()` — aborts any in-flight `start` by rejecting with an **`Error`** whose `message` is **`"aborted"`**.
@@ -15,7 +15,7 @@ Use `AbortController` / `AbortSignal` (listeners or `throwIfAborted` — your ch
 ## Verify
 
 ```bash
-pnpm vitest run module-06-async/exercises/03-abort-controller/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

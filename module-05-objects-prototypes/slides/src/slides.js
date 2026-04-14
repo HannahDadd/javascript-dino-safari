@@ -139,6 +139,7 @@ typeof Dino; // "function" — still a function`,
 const splash = withSwim({ name: 'Splash' });`,
       highlights: [
         'Spread copies shallow fields — watch nested vitals',
+        'Demo 05: destructured factory options — `createRanger({ name, zone })`',
       ],
     },
   },

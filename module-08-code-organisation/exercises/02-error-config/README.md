@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement in [`start.js`](start.js):
+Implement in [`starter/index.js`](starter/index.js):
 
 1. **`AppError`** — `class AppError extends Error` with a **`code`** string property (e.g. `new AppError('NOT_FOUND', 'missing dino')`).
 2. **`loadConfig(env)`** — pass `process.env` (tests inject a fake object). Require `PARK_NAME` (non-empty string). Read `API_PORT` default **`'8080'`**; must be a positive integer string. On violations throw **`AppError`** with codes **`CONFIG_MISSING`** / **`CONFIG_INVALID`**.
@@ -13,7 +13,7 @@ Implement in [`start.js`](start.js):
 ## Verify
 
 ```bash
-pnpm vitest run module-08-code-organisation/exercises/02-error-config/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).

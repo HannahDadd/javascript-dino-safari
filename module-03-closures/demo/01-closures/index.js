@@ -5,18 +5,20 @@
 function createZoneTracker(zoneName) {
   const sightings = [];
 
-  return {
-    logSighting(assetId, note) {
-      sightings.push({ assetId, note, at: new Date().toISOString() });
-      console.log(`[${zoneName}] logged ${assetId}: ${note}`);
-    },
-    getSightings() {
-      return [...sightings];
-    },
-    count() {
-      return sightings.length;
-    },
-  };
+  function logSighting(assetId, note) {
+    sightings.push({ assetId, note, at: new Date().toISOString() });
+    console.log(`[${zoneName}] logged ${assetId}: ${note}`);
+  }
+
+  function getSightings() {
+    return [...sightings];
+  }
+
+  function count() {
+    return sightings.length;
+  }
+
+  return { logSighting, getSightings, count };
 }
 
 const ridge = createZoneTracker('Raptor Ridge');

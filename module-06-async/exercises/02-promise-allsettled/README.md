@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Implement `summarizeSensorBatch(sensorFns)` in [`start.js`](start.js).
+Implement `summarizeSensorBatch(sensorFns)` in [`starter/index.js`](starter/index.js).
 
 - `sensorFns` is an array of **functions** that each return a Promise.
 - Use **`Promise.allSettled`**.
@@ -15,7 +15,7 @@ Implement `summarizeSensorBatch(sensorFns)` in [`start.js`](start.js).
 ## Verify
 
 ```bash
-pnpm vitest run module-06-async/exercises/02-promise-allsettled/start.test.js
+cd starter && pnpm install && pnpm test
 ```
 
-Reference: [`solution.js`](solution.js).
+Reference: [`solution/index.js`](solution/index.js).
