@@ -11,7 +11,8 @@
     "demo:strings": "node demo/03-strings",
     "demo:esm": "node demo/04-esm-basics",
     "demo:scripts": "node demo/05-package-scripts",
-    "demo:debug": "node --inspect demo/06-debugging"
+    "demo:debug": "node --inspect demo/06-debugging",
+    "demo:lint": "eslint demo/07-lint-and-format || true; prettier --check demo/07-lint-and-format || true"
   },
   "dependencies": {
     "picocolors": "^1.1.1"

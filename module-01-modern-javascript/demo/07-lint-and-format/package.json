@@ -1,0 +1,10 @@
+{
+  "name": "@dino-safari/demo-lint-and-format",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  }
+}

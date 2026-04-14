@@ -1,3 +1,5 @@
+import { BrendanEichSlide } from './BrendanEichSlide.jsx';
+
 export const slides = [
   {
     type: 'title',
@@ -7,17 +9,57 @@ export const slides = [
       icon: 'rocket',
     },
   },
+
   {
-    type: 'welcome',
+    type: 'standard',
     content: {
-      title: 'Perimeter sensors are live',
+      title: 'How "JavaScript" got its name',
+      icon: 'book-open',
       points: [
-        'Cretaceous Valley is streaming IDs faster than HQ can parse.',
-        'Before we track a single theropod, we need a modern JS workflow.',
-        'Everything runs in Node — ESM, scripts, tests, lint, debug.',
+        'Brendan Eich built "Mocha" in 10 days at Netscape (May 1995).',
+        'Renamed to "LiveScript" for the Netscape Navigator 2.0 beta.',
+        'Netscape struck a marketing deal with Sun Microsystems — renamed to "JavaScript" to ride the Java hype.',
+        'The language has almost nothing to do with Java. The name is pure marketing.',
+        'The official standard is ECMAScript (ECMA-262), maintained by TC39.',
       ],
     },
   },
+  // --- Origin story ---
+  {
+    type: 'custom',
+    component: BrendanEichSlide,
+  },
+  {
+    type: 'standard',
+    content: {
+      title: "Lisp in Java's clothing",
+      icon: 'code',
+      points: [
+        "Eich's real inspiration was Scheme (a Lisp dialect) — first-class functions, closures, dynamic typing.",
+        'The Java-like syntax (braces, semicolons, `new`) was a management requirement, not a design choice.',
+        'Under the hood: functions as values, prototype chains, event-loop concurrency.',
+        'This makes JS uniquely suited to the web — async I/O and list processing are baked into its DNA.',
+        "Every time you pass a callback or chain `.map().filter()`, you're writing Lisp with curly braces.",
+      ],
+    },
+  },
+
+  {
+    type: 'standard',
+    content: {
+      title: 'Learning goals',
+      icon: 'target',
+      points: [
+        'Understand where JavaScript came from and why it works the way it does.',
+        'Use variables, numbers, booleans, arrays, objects, and control flow confidently.',
+        'Manipulate strings — trim, search, slice, split, replace.',
+        'Use ESM (`import` / `export`) with `"type": "module"`.',
+        'Wire package scripts for run, test, and lint.',
+        'Debug with `node --inspect` and your editor.',
+      ],
+    },
+  },
+
   {
     type: 'code',
     content: {
@@ -33,41 +75,126 @@ console.log('Hello, Jurassic World!');
       ],
     },
   },
+  // --- Syntax fundamentals (broken into topic slides) ---
   {
     type: 'code',
     content: {
-      title: 'Syntax fundamentals — quick refresh',
-      code: `const zone = 'Cretaceous Valley';
-let headcount = 0;
+      title: 'Variables — const and let',
+      code: `const zone = 'Cretaceous Valley';   // cannot reassign
+const MAX_DINOS = 50;               // convention: UPPER_SNAKE for constants
 
+let headcount = 0;                  // can reassign
+headcount = 12;
+
+// var is legacy — avoid it
+// var old = 'hoisted and function-scoped';`,
+      highlights: [
+        '`const` by default — switch to `let` only when you need to reassign',
+        '`var` is function-scoped and hoisted — prefer block-scoped `const`/`let`',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Numbers',
+      code: `const weight = 8000;          // integer
+const height = 5.2;           // floating point (all numbers are 64-bit IEEE 754)
+
+Math.round(5.7);              // 6
+Math.floor(5.7);              // 5
+Math.ceil(5.2);               // 6
+Math.max(10, 20, 3);          // 20
+
+parseInt('42kg', 10);         // 42
+parseFloat('3.14m');          // 3.14
+
+0.1 + 0.2 === 0.3;           // false! (floating-point trap)`,
+      highlights: [
+        'JavaScript has one number type — no separate int/float',
+        'Floating-point arithmetic has quirks — we cover this in the Gotchas module',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Booleans and equality',
+      code: `const isAlive = true;
+const isFriendly = false;
+
+// Strict equality — always use this
+42 === '42';    // false (different types)
+42 !== '42';    // true
+
+// Loose equality — avoid
+42 == '42';     // true  (coerces!)
+
+// Logical operators
+isAlive && isFriendly;    // false
+isAlive || isFriendly;    // true
+!isFriendly;              // true`,
+      highlights: [
+        'Always use `===` and `!==` — loose `==` coerces types in surprising ways',
+        'Logical operators: `&&` (and), `||` (or), `!` (not)',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Arrays and objects',
+      code: `// Arrays — ordered lists
+const dinos = ['Rex', 'Blue', 'Echo'];
+dinos.length;               // 3
+dinos[0];                   // 'Rex'
+dinos.push('Delta');        // adds to end
+
+// Objects — key-value pairs
+const rex = {
+  name: 'Rex',
+  zone: 'Cretaceous Valley',
+  dangerLevel: 5,
+};
+rex.name;                   // 'Rex'
+rex['zone'];                // 'Cretaceous Valley'`,
+      highlights: [
+        'Arrays and objects are the two core data structures',
+        'We cover methods like `.map()`, `.filter()`, `.reduce()` in Module 2',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Control flow',
+      code: `// if / else
+if (dangerLevel >= 4) {
+  console.log('EVACUATE');
+} else if (dangerLevel >= 2) {
+  console.log('Caution');
+} else {
+  console.log('All clear');
+}
+
+// for...of — iterate arrays
 const dinos = ['Rex', 'Blue', 'Echo'];
 for (const name of dinos) {
-  headcount++;
-  console.log(\`\${name} — #\${headcount} in \${zone}\`);
-}`,
+  console.log(name);
+}
+
+// ternary — inline condition
+const status = dangerLevel > 3 ? 'DANGER' : 'safe';`,
       highlights: [
-        '`const` for values that never reassign; `let` when they must',
-        'Template literals, `for...of`, and block scoping — the everyday basics',
-      ],
-    },
-  },
-  {
-    type: 'standard',
-    content: {
-      title: 'Learning goals',
-      icon: 'target',
-      points: [
-        'Manipulate strings — trim, search, slice, split, replace.',
-        'Use ESM (`import` / `export`) with `"type": "module"`.',
-        'Wire package scripts for run, test, and lint.',
-        'Debug with `node --inspect` and your editor.',
+        '`for...of` for arrays; `for...in` for object keys (less common)',
+        'Ternary operator is handy for short conditional expressions',
       ],
     },
   },
   {
     type: 'code',
     content: {
-      title: 'String manipulation — everyday toolkit',
+      title: 'String manipulation',
       code: `const csv = 'Rex,Raptor,Bronto,Stego';
 const names = csv.split(',');    // ['Rex', 'Raptor', ...]
 names.join(' | ');               // 'Rex | Raptor | ...'
@@ -94,7 +221,7 @@ names.join(' | ');               // 'Rex | Raptor | ...'
         ],
       },
       right: {
-        label: 'CJS (legacy paddock)',
+        label: 'CJS (legacy)',
         items: [
           '`require` / `module.exports`',
           'Still in older codebases',
@@ -124,7 +251,7 @@ export default function briefing() {
   {
     type: 'standard',
     content: {
-      title: 'Package scripts = ranger shortcuts',
+      title: 'Package scripts',
       icon: 'keyboard',
       points: [
         '`pnpm dev`, `pnpm test`, `pnpm lint` — repeatable commands.',
@@ -153,12 +280,13 @@ export default function briefing() {
   {
     type: 'standard',
     content: {
-      title: 'Lint & format — keep the codebase stampede-free',
+      title: 'Lint & format',
       icon: 'check-square',
       points: [
-        'ESLint catches suspicious patterns and style drift.',
-        'Prettier ends bike-shedding on spacing and quotes.',
-        'Run from root; same rules for every module in the monorepo.',
+        'ESLint catches suspicious patterns — unused vars, loose `==`, redeclared `var`.',
+        'Prettier fixes formatting — quotes, commas, line width, semicolons.',
+        '`pnpm lint` and `pnpm format` from any exercise or the repo root.',
+        'Demo 07 has intentional violations — try running both tools on it.',
       ],
     },
   },
@@ -171,29 +299,6 @@ export default function briefing() {
         '`node --inspect path/to/script.js` then attach Chrome or your IDE.',
         'Breakpoints > `console.log` when state is complex.',
         'Demo 06 has an intentional bug — practice stepping through loops.',
-      ],
-    },
-  },
-  {
-    type: 'rules',
-    content: {
-      title: 'Field rules — Module 1',
-      rules: [
-        {
-          rule: 'Prefer === and explicit coercion',
-          example: 'Sensors send strings; parse on purpose.',
-          icon: 'scale',
-        },
-        {
-          rule: 'Keep side effects at the edges',
-          example: 'Pure helpers are easier to test in Vitest.',
-          icon: 'target',
-        },
-        {
-          rule: 'One command to reproduce',
-          example: 'If it is not in a script, it will get lost.',
-          icon: 'clipboard-list',
-        },
       ],
     },
   },

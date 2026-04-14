@@ -4,9 +4,10 @@
   "type": "module",
   "scripts": {
     "start": "node tracker.js",
-    "lint": "eslint tracker.js",
+    "lint": "eslint .",
     "test": "vitest run",
-    "debug": "node --inspect-brk tracker.js"
+    "debug": "node --inspect-brk tracker.js",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "vitest": "^2.1.6"

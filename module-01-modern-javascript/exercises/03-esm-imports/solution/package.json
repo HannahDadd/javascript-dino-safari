@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node .",
     "test": "vitest run",
-    "debug": "node --inspect-brk ."
+    "debug": "node --inspect-brk .",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "picocolors": "^1.1.1"
