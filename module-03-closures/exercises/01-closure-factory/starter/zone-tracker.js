@@ -8,14 +8,20 @@
  */
 export function createZoneTracker(_zoneName) {
   void _zoneName;
-  // TODO
+  const sightings = [];
+  
   return {
-    logSighting() {},
-    getSightings() {
-      return [];
+
+    logSighting(assetId, note) {
+      sightings.push({ assetId, note });
     },
+    
+    getSightings() {
+      return [...sightings];
+    },
+    
     getCount() {
-      return 0;
+      return sightings.length;
     },
   };
 }
