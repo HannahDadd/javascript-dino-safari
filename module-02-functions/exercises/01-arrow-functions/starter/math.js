@@ -3,7 +3,7 @@
  * @param {number} n
  */
 export const double = (n) => {
-  void n;
+  return n * 2;
 };
 
 /**
@@ -11,7 +11,7 @@ export const double = (n) => {
  * @param {number} n
  */
 export const square = (n) => {
-  void n;
+  return n * n;
 };
 
 /**
@@ -20,6 +20,5 @@ export const square = (n) => {
  * @param {number} b
  */
 export const add = (a, b) => {
-  void a;
-  void b;
+  return a + b;
 };
