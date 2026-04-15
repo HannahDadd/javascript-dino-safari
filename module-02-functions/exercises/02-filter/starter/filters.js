@@ -1,7 +1,6 @@
 /** @param {number[]} numbers */
 export const keepEvens = (numbers) => {
-  void numbers;
-  return [];
+  return numbers.filter((num) => num % 2 === 0);
 };
 
 /**
@@ -9,13 +8,10 @@ export const keepEvens = (numbers) => {
  * @param {number[]} b
  */
 export const overlap = (a, b) => {
-  void a;
-  void b;
-  return [];
+  return a.filter((num) => b.includes(num));
 };
 
 /** @param {{ species: string, zone: string, dangerLevel: number }[]} dinos */
 export const getDangerous = (dinos) => {
-  void dinos;
-  return [];
+  return dinos.filter((dino) => dino.dangerLevel > 5);
 };
