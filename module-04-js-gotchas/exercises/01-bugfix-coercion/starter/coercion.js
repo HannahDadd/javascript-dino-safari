@@ -8,6 +8,7 @@
  * Zero IS a valid reading; only null and undefined should be rejected.
  */
 export function isUsableReading(reading) {
+  if (reading === 0) return true;
   if (!reading) return false;
   return true;
 }
@@ -17,6 +18,7 @@ export function isUsableReading(reading) {
  * An empty string "" is a valid (if odd) zone name and must be kept.
  */
 export function getZoneName(zone) {
+  if (zone === "") return zone;
   return zone || 'Unknown';
 }
 
@@ -25,7 +27,7 @@ export function getZoneName(zone) {
  * Callers sometimes pass strings from CSV parsing - always return a number.
  */
 export function addReadings(a, b) {
-  return a + b;
+  return Number(a) + Number(b);
 }
 
 /**
@@ -35,7 +37,7 @@ export function addReadings(a, b) {
 export function countTruthy(flags) {
   let count = 0;
   for (const flag of flags) {
-    if (flag == true) count++;
+    if (flag !== false && flag !== 0 && flag !== "no" && flag !== "" && flag !== null && flag !== undefined) count++;
   }
   return count;
 }
@@ -53,5 +55,6 @@ export function hasItems(arr) {
  * A timeout of 0 is valid and means "no delay".
  */
 export function getTimeout(config) {
+  if (config.timeout === 0) return 0;
   return config.timeout || 5000;
 }
