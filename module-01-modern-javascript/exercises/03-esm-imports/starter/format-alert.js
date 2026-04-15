@@ -1,5 +1,5 @@
-// TODO: import pc from 'picocolors'
-// TODO: import { getRiskLabel } from './risk-levels.js'
+import pc from 'picocolors'
+import { getRiskLabel } from './risk-levels.js'
 
 /**
  * Build a single-line alert string for the park's tracking console.
@@ -20,7 +20,8 @@
  * @returns {string}
  */
 export function formatAlert(dino) {
-  // TODO: implement
-  void dino;
-  return '';
+  const label = getRiskLabel(dino?.dangerLevel ?? 0);
+  if (dino?.dangerLevel ?? 0 >= 4) return pc.red(label);
+  if (dino?.dangerLevel ?? 0 >= 2) return pc.yellow(label);
+  return pc.green(label);
 }

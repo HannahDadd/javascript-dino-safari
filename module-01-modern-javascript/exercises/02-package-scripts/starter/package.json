@@ -2,7 +2,13 @@
   "name": "@dino-safari/m01-package-scripts-starter",
   "private": true,
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "start": "node .",
+    "test": "vitest run",
+    "debug": "node --inspect-brk .",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
   "devDependencies": {
     "vitest": "^2.1.6"
   }
