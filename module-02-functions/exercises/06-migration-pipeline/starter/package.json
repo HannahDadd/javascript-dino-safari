@@ -1,5 +1,5 @@
 {
-  "name": "@dino-safari/01-map-filter-reduce",
+  "name": "@dino-safari/migration-pipeline-starter",
   "private": true,
   "type": "module",
   "scripts": {

@@ -7,6 +7,8 @@ This module is the on-ramp. By the end of it every student should be able to:
 - **Manipulate strings** - trim, search, slice, split, replace, and format with template literals.
 - **Split code into modules** - `export` from one file, `import` in another.
 - **Scaffold a project** with `pnpm init`, add scripts to `package.json`, and install an npm package.
+- **Write a function** with parameters and a return value.
+- **Run tests** with Vitest - `describe`, `it`, `expect`.
 - **Attach a debugger** when `console.log` isn't enough.
 
 Everything runs in **Node.js**. No browser, no bundler, no magic.
@@ -253,16 +255,103 @@ Run it both ways - with `node` directly and via `pnpm demo:scripts`. Notice that
 
 ---
 
-## 6. Debugging
+## 6. Your first functions
 
 ```bash
-node module-01-modern-javascript/demo/06-debugging
+node module-01-modern-javascript/demo/06-function-intro
+```
+
+Functions are how you give a name to a chunk of work. Open `demo/06-function-intro/index.js`.
+
+### The `function` keyword
+
+```js
+function greet() {
+  return 'Hello, Jurassic World!';
+}
+console.log(greet());
+```
+
+`function` declares a reusable block. `return` sends a value back to the caller. If you forget `return`, the function returns `undefined`.
+
+### Parameters
+
+```js
+function greetRanger(name) {
+  return 'Welcome, Ranger ' + name + '.';
+}
+console.log(greetRanger('Ellie'));
+```
+
+Parameters are placeholders. The value you pass in (`'Ellie'`) is the **argument**. You can have as many parameters as you need:
+
+```js
+function add(a, b) {
+  return a + b;
+}
+```
+
+### Using return values
+
+The value a function returns can be stored, printed, or passed straight into another function call:
+
+```js
+const result = double(7);
+console.log(double(double(3)));
+```
+
+We'll add arrow functions, defaults, and higher-order patterns in Module 2. For now, `function`, parameters, and `return` are all you need.
+
+---
+
+## 7. Testing with Vitest
+
+```bash
+node module-01-modern-javascript/demo/07-vitest-intro
+```
+
+This demo folder has three files — open them side by side:
+
+- `alert.js` — two small functions (`formatAlert`, `isHighRisk`).
+- `alert.test.js` — Vitest tests for both.
+- `index.js` — a runner that calls the functions so you can see the output.
+
+### Running the tests
+
+```bash
+pnpm vitest run module-01-modern-javascript/demo/07-vitest-intro/alert.test.js
+```
+
+### What the test file looks like
+
+```js
+import { describe, it, expect } from 'vitest';
+import { formatAlert, isHighRisk } from './alert.js';
+
+describe('formatAlert', () => {
+  it('formats a dino sighting', () => {
+    const dino = { name: 'Rex', zone: 'Valley', dangerLevel: 5 };
+    expect(formatAlert(dino)).toBe('[ALERT] Rex in Valley (level 5)');
+  });
+});
+```
+
+`describe` groups related tests. `it` describes a single behaviour. `expect(...).toBe(...)` checks the result. If the value doesn't match, Vitest shows you what you got vs what you expected.
+
+Every exercise in this course has a test file. The workflow is always the same: read the tests, write code until they pass.
+
+---
+
+## 8. Debugging
+
+```bash
+node module-01-modern-javascript/demo/08-debugging
 ```
 
 The demo has an intentional bug - the reported average weight is wrong. Rather than staring at the code, attach a debugger:
 
 ```bash
-node --inspect module-01-modern-javascript/demo/06-debugging
+node --inspect module-01-modern-javascript/demo/08-debugging
 ```
 
 - **Chrome**: `chrome://inspect` → "Open dedicated DevTools for Node"
@@ -278,11 +367,13 @@ This is the kind of bug `console.log` misses but a breakpoint catches in seconds
 
 Each exercise has a `starter/` folder (your work) and a `solution/` folder (instructor reference - try first). Both contain a `package.json`, `index.js`, and `index.test.js`.
 
-| #   | Folder                                                | What you'll practice                                                                            |
-| --- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| 1   | [`01-strings`](exercises/01-strings/)                 | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals - everyday string methods. |
-| 2   | [`02-package-scripts`](exercises/02-package-scripts/) | Wire up `start`, `lint`, and `test` scripts in a `package.json`.                                |
-| 3   | [`03-esm-imports`](exercises/03-esm-imports/)         | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module.   |
+| #   | Folder                                                    | What you'll practice                                                                            |
+| --- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 1   | [`01-strings`](exercises/01-strings/)                     | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals - everyday string methods. |
+| 2   | [`02-package-scripts`](exercises/02-package-scripts/)     | Wire up `start`, `lint`, and `test` scripts in a `package.json`.                                |
+| 3   | [`03-esm-imports`](exercises/03-esm-imports/)             | Import from a Node built-in (`node:path`), an npm package (`picocolors`), and a local module.   |
+| 4   | [`04-function-intro`](exercises/04-function-intro/)       | `function` keyword, parameters, return values - your first functions.                           |
+| 5   | [`05-vitest-contract`](exercises/05-vitest-contract/)     | Implement `formatSighting` - template literals and `??` defaults, Vitest guarding the contract. |
 
 Run an exercise:
 

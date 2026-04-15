@@ -1,6 +1,6 @@
 /**
  * Demo: Introduction to functions - the function keyword, parameters, returns.
- * Run: node module-02-functions/demo/01-function-intro
+ * Run: node module-01-modern-javascript/demo/06-function-intro
  */
 
 console.log('\n--- Introduction to functions ---\n');

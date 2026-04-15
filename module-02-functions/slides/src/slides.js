@@ -3,26 +3,8 @@ export const slides = [
     type: 'title',
     content: {
       title: 'Module 2 - Functions & Functional Loops',
-      subtitle: 'Functions, Vitest, arrows, filter, sort, map, reduce',
+      subtitle: 'Arrows, defaults, rest, filter, sort, map, reduce',
       icon: 'zap',
-    },
-  },
-  {
-    type: 'code',
-    content: {
-      title: 'Your first function',
-      code: `function add(a, b) {
-  return a + b;
-}
-console.log(add(2, 3));  // 5
-
-function greet(name) {
-  return 'Hello, ' + name + '!';
-}`,
-      highlights: [
-        'The `function` keyword, parameters in parens, `return` to send a value back',
-        'Demo 01: the building block for everything that follows',
-      ],
     },
   },
   {
@@ -162,18 +144,6 @@ const byZone = dinos.reduce((acc, d) => {
           example: 'Small functions > 40-line chains.',
           icon: 'file-code',
         },
-      ],
-    },
-  },
-  {
-    type: 'standard',
-    content: {
-      title: 'Vitest',
-      icon: 'flask',
-      points: [
-        'Unit tests run in Node; watch mode while you refactor.',
-        '`pnpm vitest run path/to/file.test.js` for a single exercise.',
-        'Demo 02: `describe`, `it`, `expect`.',
       ],
     },
   },

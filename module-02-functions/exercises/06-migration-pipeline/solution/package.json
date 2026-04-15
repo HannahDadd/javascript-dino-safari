@@ -1,11 +1,9 @@
 {
-  "name": "@dino-safari/vitest-contract-starter",
+  "name": "@dino-safari/migration-pipeline-solution",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node .",
     "test": "vitest run",
-    "debug": "node --inspect-brk .",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

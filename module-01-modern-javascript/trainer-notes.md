@@ -2,7 +2,7 @@
 
 ## Goal
 
-Get everyone from zero to a working modern JS workflow: run scripts, split code into modules, install packages, attach a debugger. Vitest is introduced at the start of Module 2.
+Get everyone from zero to a working modern JS workflow: run scripts, split code into modules, install packages, write basic functions, run Vitest tests, and attach a debugger.
 
 ## Demo walkthrough
 
@@ -44,7 +44,22 @@ Get everyone from zero to a working modern JS workflow: run scripts, split code 
 - Show `process.env.npm_lifecycle_event` - it's set only when running via a script.
 - Explain `node_modules/.bin` on PATH: that's why `vitest` and `eslint` work inside scripts without global install.
 
-### 06 - Debugging
+### 06 - Function intro
+
+- Walk through a bare-bones `function` declaration, parameters, and `return`.
+- Keep it simple: no arrow functions, no defaults, no rest. Those come in Module 2.
+- Ask students: "What happens if you forget `return`?" (`undefined`).
+- Good warm-up before Vitest, since tests call functions and check return values.
+
+### 07 - Vitest intro
+
+- Open `alert.js`, `alert.test.js`, and `index.js` side by side.
+- Run the tests: `pnpm vitest run module-01-modern-javascript/demo/07-vitest-intro/alert.test.js`.
+- Explain the `describe` / `it` / `expect` pattern.
+- Point out: tests are just functions that call your functions and check the result.
+- This demo is the bridge to every exercise in the course — from here on, "make the tests pass" is the workflow.
+
+### 08 - Debugging
 
 - Run with `--inspect`, attach Chrome DevTools or IDE debugger.
 - Set a breakpoint inside the `for` loop in `averageWeightKg`.
@@ -59,13 +74,17 @@ Get everyone from zero to a working modern JS workflow: run scripts, split code 
 | 1   | `01-strings`         | `toUpperCase`, `toLowerCase`, `includes`, `split`, template literals | Reinforces demo 03. Gentle first exercise - pure string work.                        |
 | 2   | `02-package-scripts` | `pnpm init`, adding scripts, `pnpm test`                             | Reinforces demo 05. Students edit a `package.json`.                                  |
 | 3   | `03-esm-imports`     | Import from Node built-in, npm, local module                         | Ties demos 04 + 05 together. Uses `node:path`, `picocolors`, local `risk-levels.js`. |
+| 4   | `04-function-intro`  | `function` keyword, params, return                                   | Reinforces demo 06. Plain functions, no arrows yet.                                  |
+| 5   | `05-vitest-contract` | `??` defaults, template literals, Vitest                             | Reinforces demo 07. First time students write code _to pass a test_.                 |
 
 ## Timing
 
 - Demos 01–05: ~40–50 min (less if skipping demo 02).
-- Demo 06 (debugging): ~10 min.
-- Exercises: ~30–40 min for all three.
-- Total: roughly 1.5 hours including Q&A.
+- Demo 06 (functions): ~10 min.
+- Demo 07 (Vitest): ~10–15 min.
+- Demo 08 (debugging): ~10 min.
+- Exercises: ~50–60 min for all five.
+- Total: roughly 2.5 hours including Q&A.
 
 ## Common issues
 

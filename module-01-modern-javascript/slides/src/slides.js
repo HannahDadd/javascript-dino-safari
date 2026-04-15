@@ -55,6 +55,8 @@ export const slides = [
         'Manipulate strings - trim, search, slice, split, replace.',
         'Use ESM (`import` / `export`) with `"type": "module"`.',
         'Wire package scripts for run, test, and lint.',
+        'Write functions with parameters and return values.',
+        'Run tests with Vitest - `describe`, `it`, `expect`.',
         'Debug with `node --inspect` and your editor.',
       ],
     },
@@ -209,6 +211,44 @@ names.join(' | ');               // 'Rex | Raptor | ...'
     },
   },
   {
+    type: 'code',
+    content: {
+      title: 'Functions',
+      code: `function greetRanger(name) {
+  return 'Welcome, Ranger ' + name + '.';
+}
+console.log(greetRanger('Ellie'));
+
+function add(a, b) {
+  return a + b;
+}
+const result = add(2, 3);  // 5`,
+      highlights: [
+        '`function` keyword, parameters in parens, `return` sends a value back',
+        'Forget `return` and you get `undefined` — a classic beginner trap',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Arrow functions',
+      code: `// concise body - implicit return
+const double = (n) => n * 2;
+const shout  = (msg) => msg.toUpperCase() + '!';
+
+// block body - explicit return
+const buildAlert = (zone, level) => {
+  const tag = level >= 4 ? 'DANGER' : 'OK';
+  return \`[\${tag}] Zone: \${zone}\`;
+};`,
+      highlights: [
+        'Single expression → implicit return; braces → you must write `return`',
+        'Arrows shine as callbacks — `.map(n => n * 2)` — covered in Module 2',
+      ],
+    },
+  },
+  {
     type: 'comparison',
     content: {
       title: 'ESM vs the old CommonJS herd',
@@ -278,6 +318,44 @@ export default function briefing() {
     },
   },
   {
+    type: 'code',
+    content: {
+      title: 'Your first function',
+      code: `function greetRanger(name) {
+  return 'Welcome, Ranger ' + name + '.';
+}
+
+console.log(greetRanger('Ellie'));
+// "Welcome, Ranger Ellie."
+
+const result = greetRanger('Alan');
+// Store it, pass it, log it`,
+      highlights: [
+        '`function` declares, `return` sends a value back to the caller',
+        'Forget `return` and you get `undefined` — a classic beginner trap',
+      ],
+    },
+  },
+  {
+    type: 'code',
+    content: {
+      title: 'Testing with Vitest',
+      code: `import { describe, it, expect } from 'vitest';
+import { formatAlert } from './alert.js';
+
+describe('formatAlert', () => {
+  it('formats a dino sighting', () => {
+    const dino = { name: 'Rex', zone: 'Valley', dangerLevel: 5 };
+    expect(formatAlert(dino)).toBe('[ALERT] Rex in Valley (level 5)');
+  });
+});`,
+      highlights: [
+        '`describe` groups tests, `it` describes one behaviour, `expect` checks the result',
+        'Demo 07: open alert.js and alert.test.js side by side',
+      ],
+    },
+  },
+  {
     type: 'standard',
     content: {
       title: 'Lint & format',
@@ -286,7 +364,7 @@ export default function briefing() {
         'ESLint catches suspicious patterns - unused vars, loose `==`, redeclared `var`.',
         'Prettier fixes formatting - quotes, commas, line width, semicolons.',
         '`pnpm lint` and `pnpm format` from any exercise or the repo root.',
-        'Demo 07 has intentional violations - try running both tools on it.',
+        'Demo 09 has intentional violations - try running both tools on it.',
       ],
     },
   },
@@ -298,7 +376,7 @@ export default function briefing() {
       points: [
         '`node --inspect path/to/script.js` then attach Chrome or your IDE.',
         'Breakpoints > `console.log` when state is complex.',
-        'Demo 06 has an intentional bug - practice stepping through loops.',
+        'Demo 08 has an intentional bug - practice stepping through loops.',
       ],
     },
   },
@@ -310,6 +388,8 @@ export default function briefing() {
         '01 - Strings: shout, whisper, format, search, initials',
         '02 - Package scripts for the mini tracker',
         '03 - ESM imports: Node built-in, npm, local module',
+        '04 - Function intro: write your first functions',
+        '05 - Vitest contract: implement formatSighting, tests guard the contract',
       ],
     },
   },
