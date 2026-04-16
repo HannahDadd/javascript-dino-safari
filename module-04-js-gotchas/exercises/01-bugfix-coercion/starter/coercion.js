@@ -37,7 +37,7 @@ export function addReadings(a, b) {
 export function countTruthy(flags) {
   let count = 0;
   for (const flag of flags) {
-    if (flag !== false && flag !== 0 && flag !== "no" && flag !== "" && flag !== null && flag !== undefined) count++;
+    if (flag) count++;
   }
   return count;
 }

@@ -7,7 +7,7 @@
  * Return true when `val` is null OR undefined, false otherwise.
  */
 export function isNullish(val) {
-  return val === null;
+  return val === null || val === undefined;
 }
 
 /**
@@ -17,6 +17,8 @@ export function isNullish(val) {
  * - everything else → whatever typeof returns
  */
 export function betterTypeof(val) {
+  if (val === null) return "null";
+  if (Array.isArray(val)) return "array";
   return typeof val;
 }
 
@@ -25,14 +27,14 @@ export function betterTypeof(val) {
  * Must NOT return true for undefined, strings, or other non-NaN values.
  */
 export function isActuallyNaN(val) {
-  return val !== val || isNaN(val);
+  return Number.isNaN(val);
 }
 
 /**
  * Return true when `val` is an array, false otherwise.
  */
 export function isArray(val) {
-  return typeof val === 'array';
+  return Array.isArray(val);
 }
 
 /**
@@ -41,5 +43,5 @@ export function isArray(val) {
  * - +0 and -0 should be considered different.
  */
 export function areSameValue(a, b) {
-  return a === b;
+  return Object.is(a, b);
 }
