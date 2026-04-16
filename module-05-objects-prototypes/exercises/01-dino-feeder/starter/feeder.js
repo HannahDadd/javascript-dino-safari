@@ -7,11 +7,25 @@ export const feeder = {
   supply: 0,
   feedings: [],
 
-  // TODO: stock(kg) — add kg of food, return new total
+  stock(kg) {
+    this.supply += kg;
+    return this.supply;
+  },
 
-  // TODO: feed(dinoName, kg) — dispense food, throw if not enough, return "Fed <name> <kg>kg"
+  feed(dinoName, kg) {
+    if (kg > this.supply) {
+      throw new Error('Not enough food');
+    }
+    this.supply -= kg;
+    this.feedings.push({ dino: dinoName, kg });
+    return `Fed ${dinoName} ${kg}kg`;
+  },
 
-  // TODO: remaining() — return kg left in the hopper
+  remaining() {
+    return this.supply;
+  },
 
-  // TODO: log() — return array of { dino, kg } entries
+  log() {
+    return this.feedings;
+  }
 };
