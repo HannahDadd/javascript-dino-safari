@@ -17,6 +17,8 @@ export function FlyingDinosaur(name, species, zone, wingspanM) {
   this.wingspanM = wingspanM;
 }
 
+FlyingDinosaur.prototype = Object.create(Dinosaur.prototype);
+FlyingDinosaur.prototype.constructor = FlyingDinosaur;
 FlyingDinosaur.prototype.describe = function describe() {
-  return `${this.name} - ${this.species} @ ${this.zone} (wingspan: ${this.wingspanM}m)`;
+  return `${Dinosaur.prototype.describe.call(this)} - wingspan ${this.wingspanM}m`;
 }
